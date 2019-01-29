@@ -10,7 +10,8 @@ def test(did_pass):
     print(msg)
 
 def calc_trees(c,r,t):
- return (c*(r+1)**t)/(t*20)
+    """c is the amound of co2 in the atmosphere, r is the rate at which co2 is increasing, t is time. This returns the amount of trees needed."""
+    return (c*(r+1)**t)/(t*20)
 
 def test_suite():
     test(calc_trees(1000000,0.05,5) == 12762.815625000005)
