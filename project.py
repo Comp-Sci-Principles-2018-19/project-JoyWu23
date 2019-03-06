@@ -20,8 +20,20 @@ def test_suite():
 
 test_suite()
 
-co2 = float(input("How many pounds of carbon dioxide are in the atmosphere?"))
-rate = float(input("What is the rate at which the amount of carbon dioxide increases in the atmosphere per year?"))
-time = float(input("By how many years do you want the amound of carbon dioxide in the atmosphere to be balanced out?"))
+#def example([(7,5,10),(4,5,6),(10,4,8),(20,56,7),(45,8789,450),(0,0,0)]):
+    #return
 
-print("The amount of trees you need for there to be a safe amount of carbon dioxide in the air in", time, "years is", calc_trees(co2,rate,time))
+treelist = []
+while True:
+    co2 = float(input("How many pounds of carbon dioxide are in the atmosphere?"))
+    rate = float(input("What is the rate at which the amount of carbon dioxide increases in the atmosphere per year?"))
+    time = float(input("By how many years do you want the amound of carbon dioxide in the atmosphere to be balanced out?"))
+    print("The amount of trees you need for there to be a safe amount of carbon dioxide in the air in", time, "years is", calc_trees(co2,rate,time))
+    treelist.append(calc_trees(co2,rate,time))
+    repeat = input("Do you want to continue?")
+    while repeat != "yes" and repeat != "no":
+        repeat = input("Do you want to continue?")
+    if repeat == "no":
+        print(treelist)
+        print("Bye")
+        break
