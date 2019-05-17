@@ -3,7 +3,11 @@ import pandas as pd
 data = pd.read_excel('Data.xlsx', 'Sheet1', index_col=None, na_values=['NA'])
 print(data)
 columns = data.columns
-print(len(columns))
+#print(len(columns))
+print("Your virtual friends are", end=" ")
+for i in columns:
+    print(i,end=", ")
+
 class Player:
     def __init__(self,name):
         self.name = name
@@ -19,13 +23,12 @@ class Friend:
     def __str__(self):
         return "friend {0}".format(self.name)
 
-
 player = Player(input("What's your name?"))
 print(player)
 friends = []
-numfriends = int(input("How many friends do you want?"))
+numfriends = int(input("How many virtual friends do you want?"))
 for i in range(numfriends):
-    friend = Friend(input("What's your number{0} virtual friend's name? ".format(i+1)))
+    friend = Friend(input("What's your virtual friend {0}'s name? ".format(i+1)))
     friends.append(friend)
     print(friend)
 #print(friend, ": ", end="")
