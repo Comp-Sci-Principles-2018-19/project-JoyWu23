@@ -55,15 +55,16 @@ while True:
         #newrow = pd.DataFrame({'Questions':[]})
         #data.append(newrow)
         #print(data)
+        data.loc[len(data)]=[msg]+["default"]*(len(columns)-1)
         data.to_excel('Data.xlsx', index = False, sheet_name='Sheet1')
         print(friend, end = ": ")
-        reply = input()
-        #data[friend] = input()
-        #data.to_excel('Data.xlsx', index = False, sheet_name='Sheet1')
+        #reply = input()
+        data[friend][len(data)-1] = input()
+        data.to_excel('Data.xlsx', index = False, sheet_name='Sheet1')
     for (i,q) in enumerate(data['Questions'].tolist()):
         if msg == q:
             print(friend,":", data[friend].tolist()[i])
-            if data[friend].tolist()[i] == 'default' or data[friend].tolist()[i] == 'nan':
+            if data[friend].tolist()[i] == 'default' or data[friend].tolist()[i] == '':
                 print(friend,end = ": ")
                 data[friend][i] = input()
                 data.to_excel('Data.xlsx', index = False, sheet_name='Sheet1')
