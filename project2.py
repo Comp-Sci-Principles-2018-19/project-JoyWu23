@@ -52,8 +52,8 @@ while True:
      #   if i == msg:
       #      print(msg)
     if msg not in data['Questions'].tolist():
-        newrow = pd.DataFrame({'Questions':[]})
-        data.append(newrow)
+        #newrow = pd.DataFrame({'Questions':[]})
+        #data.append(newrow)
         #print(data)
         data.to_excel('Data.xlsx', index = False, sheet_name='Sheet1')
         print(friend, end = ": ")
