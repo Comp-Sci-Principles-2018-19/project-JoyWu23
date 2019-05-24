@@ -33,13 +33,13 @@ class Friend:
 player = Player(input("What's your name? "))
 #print(player)
 friends = []
-numfriends = int(input("How many virtual friends do you want? "))
+numfriends = int(input("How many virtual friends do you want to talk to? "))
 for i in range(numfriends):
     friend = input("What's your virtual friend {0}'s name? ".format(i+1))
     if friend not in columns:
-        friends.append(friend)
+        #friends.append(friend)
         column = [friend]
-        data[friend] = 'default'
+        data[friend] = ""
         data.to_excel('Data.xlsx', index = False, sheet_name='Sheet1')
     #print(friend)
 #print(friend, ": ", end="")
@@ -55,7 +55,7 @@ while True:
         #newrow = pd.DataFrame({'Questions':[]})
         #data.append(newrow)
         #print(data)
-        data.loc[len(data)]=[msg]+["default"]*(len(columns)-1)
+        data.loc[len(data)]=[msg]+[""]*(len(data.columns)-1)
         data.to_excel('Data.xlsx', index = False, sheet_name='Sheet1')
         print(friend, end = ": ")
         #reply = input()
@@ -63,7 +63,8 @@ while True:
         data.to_excel('Data.xlsx', index = False, sheet_name='Sheet1')
     for (i,q) in enumerate(data['Questions'].tolist()):
         if msg == q:
-            print(friend,":", data[friend].tolist()[i])
+            print("{0}: {1}".format(friend, data[friend].tolist()[i]))
+                  #friend,":", data[friend].tolist()[i])
             if data[friend].tolist()[i] == 'default' or data[friend].tolist()[i] == '':
                 print(friend,end = ": ")
                 data[friend][i] = input()
